@@ -1,0 +1,263 @@
+/* ===== Dasar ===== */
+:root {
+  --garis: #1a1a1a;
+  --teks: #111111;
+  --teks-lembut: #444444;
+  --latar: #ffffff;
+  --fokus: #1a56db;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--latar);
+  color: var(--teks);
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.4;
+}
+
+.container {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 24px 16px 48px;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+:focus-visible {
+  outline: 2px solid var(--fokus);
+  outline-offset: 2px;
+}
+
+/* ===== Kartu ringkasan ===== */
+.ringkasan {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 28px;
+  max-width: 1000px;
+  margin: 0 auto 32px;
+}
+
+.kartu {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  min-height: 120px;
+  padding: 16px 20px;
+  border: 1px solid var(--garis);
+  background: var(--latar);
+}
+
+.ikon-lingkaran {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 76px;
+  height: 76px;
+  border: 1px solid var(--garis);
+  border-radius: 50%;
+}
+
+.ikon-dompet {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 76px;
+  height: 76px;
+}
+
+.kartu-teks h2 {
+  margin: 0 0 6px;
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+.kartu-teks .nominal {
+  margin: 0;
+  font-size: 1.05rem;
+}
+
+.kartu-teks .keterangan {
+  margin: 2px 0 0;
+  font-size: 0.65rem;
+  color: var(--teks-lembut);
+}
+
+/* ===== Filter ===== */
+.filter {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 20px;
+  padding: 16px 24px 18px;
+  margin-bottom: 28px;
+  border: 1px solid var(--garis);
+  border-radius: 18px;
+}
+
+.kolom {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.kolom label {
+  font-size: 0.95rem;
+}
+
+.filter input,
+.filter select,
+.tombol-tampilkan {
+  height: 36px;
+  padding: 0 12px;
+  border: 1px solid var(--garis);
+  border-radius: 6px;
+  background: var(--latar);
+  color: var(--teks);
+  font: inherit;
+  font-size: 0.95rem;
+}
+
+.filter input[type="date"] {
+  width: 160px;
+}
+
+.filter select {
+  width: 145px;
+}
+
+.kolom-cari {
+  flex: 1 1 280px;
+}
+
+.cari {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 44px;
+  padding: 0 12px;
+  border: 1px solid var(--garis);
+  border-radius: 8px;
+}
+
+.cari input {
+  flex: 1;
+  min-width: 0;
+  height: 100%;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  outline-offset: 6px;
+}
+
+.cari:focus-within {
+  outline: 2px solid var(--fokus);
+  outline-offset: 2px;
+}
+
+.cari input:focus-visible {
+  outline: none;
+}
+
+.tombol-tampilkan {
+  width: 175px;
+  height: 40px;
+  cursor: pointer;
+}
+
+.tombol-tampilkan:hover {
+  background: #f0f0f0;
+}
+
+/* ===== Transaksi terbaru ===== */
+.transaksi {
+  width: 100%;
+  max-width: 620px;
+  padding: 16px 12px 24px;
+  border: 1px solid var(--garis);
+}
+
+.transaksi-kepala {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+  margin-bottom: 14px;
+  padding: 0 4px;
+}
+
+.transaksi-kepala h2 {
+  margin: 0;
+  font-size: 1.6rem;
+  font-weight: 400;
+}
+
+.transaksi-kepala a {
+  color: var(--teks);
+  font-size: 0.95rem;
+  text-decoration: underline;
+}
+
+.tabel-bungkus {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  min-width: 540px;
+  border-collapse: collapse;
+  font-size: 0.8rem;
+}
+
+th,
+td {
+  padding: 0 8px;
+  height: 59px;
+  border: 1px solid var(--garis);
+  text-align: center;
+  vertical-align: middle;
+}
+
+th {
+  font-size: 0.95rem;
+  font-weight: 400;
+}
+
+td:nth-child(1) {
+  font-size: 0.9rem;
+}
+
+/* ===== Responsif ===== */
+@media (max-width: 860px) {
+  .ringkasan {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}
+
+@media (max-width: 600px) {
+  .filter {
+    padding: 16px;
+  }
+
+  .filter input[type="date"],
+  .filter select,
+  .kolom,
+  .tombol-tampilkan {
+    width: 100%;
+  }
+
+  .transaksi-kepala h2 {
+    font-size: 1.3rem;
+  }
+}
