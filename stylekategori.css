@@ -1,0 +1,387 @@
+/* ===== Variabel ===== */
+:root {
+  --bg: #ffffff;
+  --teks: #1a1a1a;
+  --garis: #222222;
+  --abu: #6b7280;
+  --abu-ikon: #4a5563;
+  --fokus: #2f6fed;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--bg);
+  color: var(--teks);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
+}
+
+.halaman {
+  width: 100%;
+  margin: 0;
+  padding: 28px;
+}
+
+/* ===== Header ===== */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid var(--garis);
+  padding: 14px 14px;
+  height: 116px;
+}
+
+.header-kiri {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.logo {
+  width: 102px;
+  height: 88px;
+  border: 1px solid var(--garis);
+  display: grid;
+  place-items: center;
+  font-size: 15px;
+}
+
+.judul-app {
+  font-size: 19px;
+  line-height: 1.35;
+}
+
+.pengguna {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: none;
+  border: 0;
+  font-family: inherit;
+  font-size: 15px;
+  color: var(--teks);
+  cursor: pointer;
+  margin-right: 24px;
+}
+
+.avatar {
+  width: 68px;
+  height: 68px;
+}
+
+.panah {
+  width: 22px;
+  height: 22px;
+  fill: none;
+  stroke: var(--teks);
+  stroke-width: 2.4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* ===== Badan: sidebar + konten ===== */
+.badan {
+  display: grid;
+  grid-template-columns: 272px 1fr;
+  min-height: 808px;
+}
+
+/* ===== Sidebar ===== */
+.sidebar {
+  border: 1px solid var(--garis);
+  border-top: 0;
+  padding-top: 38px;
+}
+
+.menu {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  height: 66px;
+  margin-bottom: 20px;
+  padding-left: 18px;
+  color: var(--teks);
+  text-decoration: none;
+  border: 1px solid transparent;
+  border-radius: 0 12px 12px 0;
+}
+
+.menu:hover {
+  background: #f1f3f6;
+}
+
+.menu.aktif {
+  border-color: var(--garis);
+  border-left-color: transparent;
+  background: #fff;
+}
+
+.menu:focus-visible,
+.pengguna:focus-visible,
+.tombol-tambah:focus-visible,
+.btn-aksi:focus-visible,
+.cari input:focus,
+.filter-jenis select:focus {
+  outline: 2px solid var(--fokus);
+  outline-offset: 2px;
+}
+
+.ikon-menu {
+  width: 42px;
+  height: 42px;
+  flex-shrink: 0;
+}
+
+.ikon-isi {
+  fill: #3b4350;
+}
+
+.ikon-dokumen {
+  fill: #5d6b80;
+  stroke: #2f3a4a;
+  stroke-width: 1.6;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+}
+
+.ikon-dokumen line {
+  stroke: #e8ecf2;
+}
+
+/* ===== Konten ===== */
+.konten {
+  padding: 28px 0 0 31px;
+  min-width: 0;
+}
+
+/* Toolbar: cari, filter, tambah */
+.toolbar {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  margin-bottom: 82px;
+}
+
+.cari {
+  position: relative;
+  width: 376px;
+  flex-shrink: 0;
+}
+
+.cari svg {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 34px;
+  height: 34px;
+  fill: none;
+  stroke: var(--teks);
+  stroke-width: 1.8;
+  stroke-linecap: round;
+}
+
+.cari input {
+  width: 100%;
+  height: 66px;
+  padding: 0 16px 0 88px;
+  border: 1px solid var(--garis);
+  border-radius: 8px;
+  font-size: 15px;
+  font-family: inherit;
+  background: #fff;
+}
+
+.filter-jenis {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.filter-jenis label {
+  white-space: nowrap;
+}
+
+.filter-jenis select {
+  width: 203px;
+  height: 66px;
+  padding: 0 16px;
+  text-align: center;
+  text-align-last: center;
+  border: 1px solid var(--garis);
+  border-radius: 8px;
+  font-size: 15px;
+  font-family: inherit;
+  background: #fff;
+  cursor: pointer;
+}
+
+.tombol-tambah {
+  margin-left: auto;
+  width: 290px;
+  height: 66px;
+  border: 1px solid var(--garis);
+  border-radius: 8px;
+  background: #fff;
+  font-size: 15px;
+  font-family: inherit;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.tombol-tambah:hover {
+  background: #eef2ff;
+}
+
+/* ===== Tabel ===== */
+.tabel-wrap {
+  width: 100%;
+  max-width: 835px;
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid var(--garis);
+  min-width: 560px;
+}
+
+th,
+td {
+  border: 1px solid var(--garis);
+  text-align: center;
+  vertical-align: middle;
+  height: 105px;
+  padding: 6px 8px;
+  font-weight: 400;
+}
+
+th {
+  height: 106px;
+}
+
+th:nth-child(1) { width: 8%; }
+th:nth-child(2) { width: 33%; }
+th:nth-child(3) { width: 30%; }
+th:nth-child(4) { width: 29%; }
+
+td.no {
+  text-align: left;
+  padding-left: 22px;
+}
+
+/* ===== Tombol aksi ===== */
+.aksi {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 8px;
+}
+
+.btn-aksi {
+  display: grid;
+  place-items: center;
+  width: 62px;
+  height: 46px;
+  background: #fff;
+  cursor: pointer;
+}
+
+.btn-aksi svg {
+  width: 34px;
+  height: 34px;
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.btn-edit {
+  border: 1px solid var(--garis);
+}
+
+.btn-edit svg {
+  stroke: #111;
+  fill: #333;
+}
+
+.btn-hapus {
+  border: 2px solid #8a8f98;
+  border-radius: 4px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+}
+
+.btn-hapus svg {
+  stroke: #6b7280;
+  stroke-width: 2.4;
+}
+
+.btn-edit:hover { background: #f1f3f6; }
+.btn-hapus:hover { background: #fff1f1; border-color: #c0392b; }
+.btn-hapus:hover svg { stroke: #c0392b; }
+
+/* ===== Responsif ===== */
+@media (max-width: 1100px) {
+  .toolbar {
+    flex-wrap: wrap;
+    gap: 16px 24px;
+    margin-bottom: 40px;
+  }
+
+  .tombol-tambah {
+    margin-left: 0;
+    width: 200px;
+  }
+}
+
+@media (max-width: 800px) {
+  .halaman {
+    padding: 12px;
+  }
+
+  .badan {
+    grid-template-columns: 1fr;
+    min-height: 0;
+  }
+
+  .sidebar {
+    border-top: 1px solid var(--garis);
+    padding: 12px 0 0;
+  }
+
+  .sidebar nav {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .menu {
+    height: 52px;
+    margin-bottom: 12px;
+    padding-right: 18px;
+  }
+
+  .konten {
+    padding: 20px 0 0;
+  }
+
+  .header {
+    height: auto;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  .cari {
+    width: 100%;
+  }
+
+  .pengguna span {
+    display: none;
+  }
+}

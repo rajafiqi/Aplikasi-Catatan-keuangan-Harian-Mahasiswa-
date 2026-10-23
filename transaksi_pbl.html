@@ -8,7 +8,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    
+    <link rel="stylesheet" href="transaksi.css">
     <style>
          body {
             background-color: #f8f9fa;
@@ -93,23 +93,162 @@
             </ul>
         </div>
 
-        <!-- Main Content -->
-        <div class="container-fluid p-4">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="card shadow-sm">
-                        <div class="card-header bg-primary text-white">
-                            <h5 class="mb-0">Selamat Datang di Dashboard</h5>
-                        </div>
-                        <div class="card-body">
-                            <p class="card-text">Ini adalah halaman dashboard Aplikasi Agenda kegiatan organisasi Mahasiswa. Anda dapat menambahkan konten sesuai kebutuhan.</p>
-                            <p class="card-text">Gunakan menu di sebelah kiri untuk mengakses berbagai fitur untuk mengelola akses akses masih dalam perbaikan jadi maaf kalo ada bug .</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+  <!-- Ikon (didefinisikan sekali, dipakai berulang) -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="ikon-edit" viewBox="0 0 24 24">
+      <path d="M3 21l1.5-5L16 4.5 19.5 8 8 19.5z"></path>
+      <line x1="14" y1="6.5" x2="17.5" y2="10"></line>
+    </symbol>
+    <symbol id="ikon-hapus" viewBox="0 0 24 24">
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <path d="M9 6V3h6v3"></path>
+      <path d="M5 6l1 15h12l1-15"></path>
+      <line x1="10" y1="10" x2="10" y2="18"></line>
+      <line x1="14" y1="10" x2="14" y2="18"></line>
+    </symbol>
+    <symbol id="ikon-kalender" viewBox="0 0 34 34">
+      <rect x="1" y="1" width="32" height="32" rx="2" class="kal-badan"></rect>
+      <rect x="1" y="1" width="32" height="7" rx="2" class="kal-kepala"></rect>
+    </symbol>
+  </svg>
+
+  <main class="halaman">
+    <h1>Transaksi</h1>
+
+    <!-- Filter Transaksi -->
+    <section class="filter">
+      <h2 class="judul-filter">Filter Transaksi</h2>
+
+      <form class="filter-grid" action="#" method="get">
+
+        <div class="field">
+          <label for="kata-kunci">Kata Kunci</label>
+          <div class="input-ikon">
+            <svg class="ikon ikon-cari" viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="14" cy="10" r="6.5"></circle>
+              <line x1="9.5" y1="14.5" x2="2.5" y2="21.5"></line>
+            </svg>
+            <input type="text" id="kata-kunci" name="kata_kunci" placeholder="Cari Keterangan...">
+          </div>
         </div>
-    </div>
+
+        <div class="field">
+          <label for="jenis">Jenis Transaksi</label>
+          <select id="jenis" name="jenis">
+            <option value="">Semua</option>
+            <option value="pemasukan">Pemasukan</option>
+            <option value="pengeluaran">Pengeluaran</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="kategori">Kategori</label>
+          <select id="kategori" name="kategori">
+            <option value="">Semua</option>
+            <option value="makan">Makan dan minum</option>
+            <option value="hiburan">Hiburan</option>
+            <option value="uang-saku">Uang saku</option>
+            <option value="transportasi">Transportasi</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="tgl-mulai">Tanggal Mulai</label>
+          <div class="input-ikon">
+            <svg class="ikon ikon-kal" aria-hidden="true"><use href="#ikon-kalender"></use></svg>
+            <input type="date" id="tgl-mulai" name="tgl_mulai">
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="tgl-selesai">Tanggal Selesai</label>
+          <div class="input-ikon">
+            <svg class="ikon ikon-kal" aria-hidden="true"><use href="#ikon-kalender"></use></svg>
+            <input type="date" id="tgl-selesai" name="tgl_selesai">
+          </div>
+        </div>
+
+        <div class="field field-tombol">
+          <button type="submit" class="tombol-cari">Cari/Filter</button>
+        </div>
+
+      </form>
+    </section>
+
+    <!-- Daftar Transaksi -->
+    <section class="daftar">
+      <h2>Daftar Transaksi</h2>
+
+      <div class="tabel-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Tanggal</th>
+              <th>Jenis</th>
+              <th>Kategori</th>
+              <th>Nominal</th>
+              <th>Aksi</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>10/10/2026</td>
+              <td>Pengeluaran</td>
+              <td>Makan dan minum</td>
+              <td>28.000</td>
+              <td><div class="aksi">
+                <button type="button" class="btn-aksi btn-edit" aria-label="Edit"><svg><use href="#ikon-edit"></use></svg></button>
+                <button type="button" class="btn-aksi btn-hapus" aria-label="Hapus"><svg><use href="#ikon-hapus"></use></svg></button>
+              </div></td>
+            </tr>
+            <tr>
+              <td>11/10/2026</td>
+              <td>Pengeluaran</td>
+              <td>Hiburan</td>
+              <td>55.000</td>
+              <td><div class="aksi">
+                <button type="button" class="btn-aksi btn-edit" aria-label="Edit"><svg><use href="#ikon-edit"></use></svg></button>
+                <button type="button" class="btn-aksi btn-hapus" aria-label="Hapus"><svg><use href="#ikon-hapus"></use></svg></button>
+              </div></td>
+            </tr>
+            <tr>
+              <td>12/10/2026</td>
+              <td>Pemasukan</td>
+              <td>Uang saku</td>
+              <td>2.500.000</td>
+              <td><div class="aksi">
+                <button type="button" class="btn-aksi btn-edit" aria-label="Edit"><svg><use href="#ikon-edit"></use></svg></button>
+                <button type="button" class="btn-aksi btn-hapus" aria-label="Hapus"><svg><use href="#ikon-hapus"></use></svg></button>
+              </div></td>
+            </tr>
+            <tr>
+              <td>13/10/2026</td>
+              <td>Pengeluaran</td>
+              <td>Transportasi</td>
+              <td>124.000</td>
+              <td><div class="aksi">
+                <button type="button" class="btn-aksi btn-edit" aria-label="Edit"><svg><use href="#ikon-edit"></use></svg></button>
+                <button type="button" class="btn-aksi btn-hapus" aria-label="Hapus"><svg><use href="#ikon-hapus"></use></svg></button>
+              </div></td>
+            </tr>
+            <tr>
+              <td>14/10/2026</td>
+              <td>Pengeluaran</td>
+              <td>Makanan</td>
+              <td>70.000</td>
+              <td><div class="aksi">
+                <button type="button" class="btn-aksi btn-edit" aria-label="Edit"><svg><use href="#ikon-edit"></use></svg></button>
+                <button type="button" class="btn-aksi btn-hapus" aria-label="Hapus"><svg><use href="#ikon-hapus"></use></svg></button>
+              </div></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+</body>
+</html>
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>

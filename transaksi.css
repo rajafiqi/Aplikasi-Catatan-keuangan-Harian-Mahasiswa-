@@ -1,0 +1,278 @@
+/* ===== Variabel ===== */
+:root {
+  --bg: #ffffff;
+  --teks: #1a1a1a;
+  --garis: #222222;
+  --tombol: #6b7685;
+  --ikon-kal: #5a6878;
+  --fokus: #2f6fed;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--bg);
+  color: var(--teks);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
+}
+
+/* Rata kiri, tidak di tengah */
+.halaman {
+  width: 100%;
+  max-width: 980px;
+  margin: 0;
+  padding: 16px 24px 48px;
+}
+
+h1 {
+  font-size: 36px;
+  font-weight: 400;
+  margin-bottom: 36px;
+}
+
+h2 {
+  font-size: 26px;
+  font-weight: 400;
+}
+
+/* ===== Filter ===== */
+.filter {
+  border: 1px solid var(--garis);
+  padding: 12px 22px 16px;
+  margin-bottom: 52px;
+}
+
+.judul-filter {
+  font-size: 14px;
+  margin: 0 0 12px 4px;
+}
+
+.filter-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px 24px;
+}
+
+.field label {
+  display: block;
+  font-size: 15px;
+  margin: 0 0 4px 2px;
+}
+
+.field input,
+.field select {
+  width: 100%;
+  height: 66px;
+  background: #fff;
+  color: var(--teks);
+  border: 1px solid var(--garis);
+  border-radius: 10px;
+  font-size: 15px;
+  font-family: inherit;
+}
+
+.field select {
+  text-align: center;
+  text-align-last: center;
+  padding: 0 16px;
+  cursor: pointer;
+}
+
+.field input::placeholder {
+  color: var(--teks);
+  opacity: 1;
+}
+
+.field input:focus,
+.field select:focus,
+.tombol-cari:focus-visible,
+.btn-aksi:focus-visible {
+  outline: 2px solid var(--fokus);
+  outline-offset: 2px;
+}
+
+/* Input dengan ikon di kiri */
+.input-ikon {
+  position: relative;
+}
+
+.input-ikon input {
+  padding: 0 16px 0 84px;
+}
+
+.ikon {
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+.ikon-cari {
+  width: 40px;
+  height: 40px;
+  fill: none;
+  stroke: var(--teks);
+  stroke-width: 1.8;
+  stroke-linecap: round;
+}
+
+.ikon-kal {
+  width: 34px;
+  height: 34px;
+}
+
+.kal-badan {
+  fill: var(--ikon-kal);
+  stroke: #3d4856;
+  stroke-width: 1.5;
+}
+
+.kal-kepala {
+  fill: #2f3945;
+}
+
+/* Klik di mana saja pada kolom tanggal membuka kalender */
+input[type="date"]::-webkit-calendar-picker-indicator {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Tombol Cari/Filter: kolom ketiga, sejajar baris tanggal */
+.field-tombol {
+  display: flex;
+  align-items: flex-end;
+}
+
+.tombol-cari {
+  width: 100%;
+  height: 66px;
+  background: var(--tombol);
+  color: #fff;
+  font-weight: 700;
+  border: 0;
+  border-radius: 10px;
+  font-size: 15px;
+  font-family: inherit;
+  cursor: pointer;
+  transition: filter 0.15s;
+}
+
+.tombol-cari:hover {
+  filter: brightness(1.12);
+}
+
+/* ===== Tabel ===== */
+.daftar h2 {
+  margin: 0 0 8px 4px;
+}
+
+.tabel-wrap {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid var(--garis);
+  min-width: 700px;
+}
+
+th,
+td {
+  border: 1px solid var(--garis);
+  text-align: center;
+  vertical-align: middle;
+  height: 60px;
+  padding: 6px 8px;
+  font-weight: 400;
+}
+
+th {
+  height: 58px;
+}
+
+th:nth-child(1) { width: 19%; }
+th:nth-child(2) { width: 22%; }
+th:nth-child(3) { width: 16%; }
+th:nth-child(4) { width: 15%; }
+th:nth-child(5) { width: 28%; }
+
+/* ===== Tombol aksi ===== */
+.aksi {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 14px;
+}
+
+.btn-aksi {
+  display: grid;
+  place-items: center;
+  width: 62px;
+  height: 46px;
+  background: #fff;
+  cursor: pointer;
+}
+
+.btn-aksi svg {
+  width: 34px;
+  height: 34px;
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.btn-edit {
+  border: 1px solid var(--garis);
+}
+
+.btn-edit svg {
+  stroke: #333;
+  fill: #555;
+}
+
+.btn-hapus {
+  border: 2px solid #9aa0a8;
+  border-radius: 6px;
+}
+
+.btn-hapus svg {
+  stroke: #8a9099;
+  stroke-width: 2.4;
+}
+
+.btn-edit:hover { background: #f1f3f6; }
+.btn-hapus:hover { background: #fff1f1; border-color: #c0392b; }
+.btn-hapus:hover svg { stroke: #c0392b; }
+
+/* ===== Responsif ===== */
+@media (max-width: 800px) {
+  .filter-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 520px) {
+  .halaman {
+    padding: 12px;
+  }
+
+  .filter-grid {
+    grid-template-columns: 1fr;
+  }
+
+  h1 {
+    font-size: 28px;
+  }
+}
